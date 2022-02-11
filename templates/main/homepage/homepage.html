@@ -1,0 +1,11 @@
+{% extends 'masterpage.html' %}
+
+{% block content %}
+{% include 'main/homepage/_HelloIntro.html' with content=content %}
+{% include 'main/homepage/_DescriptionHomePage.html' with content=content %}
+{% include 'main/homepage/_Categories.html' with content=content %}
+{% include 'main/homepage/_showhome.html' with content=content %}
+{% include 'main/homepage/_Projects.html' with content=content %}
+{% include 'main/homepage/_Map.html' with content=content %}
+
+{% endblock content %}

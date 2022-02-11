@@ -1,0 +1,30 @@
+<section class="content-section bg-dark text-white text-center" id="services">
+    <div class="container px-4 px-lg-5">
+        <div class="content-section-heading">
+            {% if LANGUAGE_CODE == 'ar' %}
+                <h3 class="text-secondary mb-0">{{ content.category_title_ar | safe }}</h3>
+                <h2 class="text-white">{{ content.category_description_ar | safe }}</h2>
+
+            {% else %}
+                <h3 class="text-secondary mb-0">{{ content.category_title_en | safe }}</h3>
+                <h2 class="text-white">{{ content.category_description_en | safe }}</h2>
+
+            {% endif %}
+        </div>
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            {% for cat in content.categories %}
+                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                <span class="service-icon mx-auto mb-3"><img src="{{ cat.picture.url }}" class="cat-icon"/></span>
+                {% if LANGUAGE_CODE == 'ar' %}
+                    <h4 class="text-white"><strong>{{ cat.name_ar }}</strong></h4>
+                {% else %}
+                    <h4 class="text-white"><strong>{{ cat.name_en }}</strong></h4>
+
+                {% endif %}
+
+            </div>
+
+            {% endfor %}
+        </div>
+    </div>
+</section>

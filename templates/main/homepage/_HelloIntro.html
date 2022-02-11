@@ -1,0 +1,21 @@
+<header class="masthead d-flex align-items-center" style="background-image: url('{{ content.homepage_background.url }}')" >
+            <div class="container px-4 px-lg-5">
+                                     {% if LANGUAGE_CODE == 'ar' %}
+                <h1 class="mb-1">{{ content.header_ar|safe }}</h1>
+                <h3 class="mb-5">{{ content.subheader_ar|safe }}</h3>
+
+                                         <div class="row col-3 justify-content-center">
+                                         <a class="btn btn-primary btn-sm" style="border: none;background-color: {{ content.btn_color|safe }}">{{ content.btn_text_ar|safe }}</a>
+
+                                         </div>
+                {% else %}
+                  <h1 class="mb-1">{{ content.header_en|safe|capfirst }}</h1>
+                <h3 class="mb-5">{{ content.subheader_en|safe|capfirst }}</h3>
+
+                                         <div class="row  col-3 justify-content-center">
+                                         <a class="btn btn-primary btn-sm" style="background-color: {{ content.btn_color |safe }}" href="#about">{{ content.btn_text_en|safe|capfirst }}</a>
+
+                                         </div>
+                {% endif %}
+            </div>
+        </header>

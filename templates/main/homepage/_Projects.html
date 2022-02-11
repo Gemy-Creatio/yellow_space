@@ -1,0 +1,36 @@
+<section class="content-section" id="portfolio">
+            <div class="container px-4 px-lg-5">
+                <div class="content-section-heading text-center">
+                    {% if LANGUAGE_CODE == 'ar' %}
+                    <h3 class="text-secondary mb-0">{{ content.furniture_title_ar | safe }}</h3>
+                    <h2 class="mb-5">{{ content.furniture_description_ar | safe }}</h2>
+                    {% else %}
+                    <h3 class="text-secondary mb-0">{{ content.furniture_title_en | safe |capfirst }}</h3>
+                    <h2 class="mb-5"> {{ content.furniture_description_en | safe |capfirst }} </h2>
+                    {% endif %}
+                </div>
+                <div class="row gx-0">
+                  {% for furn in content.furniture %}
+
+                      <div class="col-lg-6">
+                        <a class="portfolio-item" href="#!">
+                            <div class="caption">
+                                <div class="caption-content">
+                                                        {% if LANGUAGE_CODE == 'ar' %}
+                                    <div class="h2">{{ furn.name_ar  |safe}}</div>
+                                    <p class="mb-0">{{ furn.description_1_ar |safe }}</p>
+                                      {% else %}
+                                   <div class="h2">{{ furn.name_en |safe |capfirst  }}</div>
+                                    <p class="mb-0">{{ furn.description_1_en |safe |capfirst }}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <img class="img-fluid" src="assets/img/portfolio-1.jpg" alt="...">
+                        </a>
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+        </section>

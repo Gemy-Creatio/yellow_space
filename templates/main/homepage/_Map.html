@@ -1,0 +1,68 @@
+<section id="contact" class="content-section bg-white text-white text-center">
+    <div class="container px-4 px-lg-5">
+        <div class="content-section-heading">
+            {% if LANGUAGE_CODE == 'ar' %}
+                <h2 class="text-secondary">إتصل بنا</h2>
+
+            {% else %}
+                <h2 class="text-secondary">Contact Us</h2>
+
+            {% endif %}
+        </div>
+
+        <div class="row contact-info">
+
+            <div class="col-md-4">
+                <div class="contact-address text-align-center justify-content-center">
+                    <i class="fa-solid fa-location-dot"></i>
+                    {% if LANGUAGE_CODE == 'ar' %}
+                        <h3>العنوان</h3>
+                        <address>{{ content.address_ar |safe }}</address>
+
+                    {% else %}
+                        <h3>Address</h3>
+                        <address>{{ content.address_ar |safe|capfirst }}</address>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="contact-phone text-align-center justify-content-center">
+<i class="fa-solid fa-phone"></i>
+                    {% if LANGUAGE_CODE == 'ar' %}
+                        <h3>الهاتف</h3>
+                    {% else %}
+                        <h3>Phone</h3>
+                    {% endif %}
+                    <p><a href="{{ content.mobile | safe }}">{{ content.mobile | safe }}</a></p>
+                    <p><a href="tel:{{ content.other_phone | safe }}">{{ content.other_phone | safe }} </a></p>
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="contact-email justify-content-center">
+<i class="fa-solid fa-envelope"></i>
+                    {% if LANGUAGE_CODE == 'ar' %}
+                        <h3>البريد اللألكترونى</h3>
+
+                    {% else %}
+                        <h3>Email</h3>
+
+                    {% endif %}
+                    <p><a href="mailto:{{ content.email }}">{{ content.email }}</a></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container mb-4">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3448.4504633710785!2d31.64140601511867!3d30.195688181827524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc5450a9ccd8260a2!2zMzDCsDExJzQ0LjUiTiAzMcKwMzgnMzYuOSJF!5e0!3m2!1sen!2seg!4v1640083931280!5m2!1sen!2seg"
+                width="100%" height="380" frameborder="0" style="border:0" allowfullscreen="" loading="lazy"></iframe>
+
+    </div>
+
+
+</section>
+

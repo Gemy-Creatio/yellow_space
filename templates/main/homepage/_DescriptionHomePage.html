@@ -1,0 +1,22 @@
+<section class="content-section bg-light" id="about">
+            <div class="container px-4 px-lg-5 text-center">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-lg-10">
+                                                             {% if LANGUAGE_CODE == 'ar' %}
+                        <p >{{ content.description_ar | safe }}</p>
+
+                                                                   <div class="justify-content-center text-center">
+                        <a class="btn btn-primary btn-xl" style="border: none;background-color: {{ content.btn_color|safe }}">عن يلو سباس</a>
+
+                    </div>
+                        {% else %}
+                        <p>{{ content.description_en | safe |capfirst }}</p>
+  <div class="justify-content-center text-center">
+                        <a class="btn btn-primary btn-xl" style="border: none;background-color: {{ content.btn_color|safe }}">About Yellow Space</a>
+
+                    </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </section>
