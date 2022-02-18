@@ -17,11 +17,11 @@
                     <i class="fa-solid fa-location-dot"></i>
                     {% if LANGUAGE_CODE == 'ar' %}
                         <h3>العنوان</h3>
-                        <address>{{ content.address_ar |safe }}</address>
+                        <p class="text-bold">{{ content.address_ar |safe }}</p>
 
                     {% else %}
                         <h3>Address</h3>
-                        <address>{{ content.address_ar |safe|capfirst }}</address>
+                        <p class="text-bold">{{ content.address_ar |safe|capfirst }}</p>
                     {% endif %}
                 </div>
             </div>

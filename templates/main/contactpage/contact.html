@@ -1,0 +1,17 @@
+{% extends 'masterpage.html' %}
+{% block style %}
+ <style>
+     label {
+        text-align: end;
+        display: flex;
+     }
+ </style>
+{% endblock style %}
+
+
+{% block content %}
+
+ {% include 'main/contactpage/_contactintro.html' %}
+ {% include 'main/contactpage/_contactform.html' %}
+
+{% endblock content %}

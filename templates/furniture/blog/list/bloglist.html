@@ -1,0 +1,13 @@
+{% extends 'masterpage.html' %}
+{% load static %}
+{% block style %}
+<link href="{% static 'css/blog.css' %}" rel="stylesheet" />
+{%  endblock style %}
+{% block content %}
+{% include 'furniture/blog/list/_blogIntro.html' with content=blog_content %}
+{% include 'furniture/blog/list/_blogobjects.html' with content=blogs %}
+{% include 'partials/_pagination.html' with page_obj=blogs %}
+
+    
+{% endblock content %}
+    

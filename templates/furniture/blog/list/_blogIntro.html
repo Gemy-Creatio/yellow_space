@@ -1,0 +1,12 @@
+<header class="masthead d-flex align-items-center" style="background-image: url('{{ content.background_image.url }}')" >
+    <div class="container px-4 px-lg-5 d-flex justify-content-start flex-column">
+                             {% if LANGUAGE_CODE == 'ar' %}
+        <h1 class="mb-1 text-white">{{ content.title_ar|safe }}</h1>
+        <h3 class="mb-5 text-white">{{ content.conten_ar|safe }}</h3>
+
+        {% else %}
+          <h1 class="mb-1 text-white">{{ content.title_en|safe|capfirst }}</h1>
+        <h3 class="mb-5 text-white">{{ content.content_en|safe|capfirst }}</h3>
+        {% endif %}
+    </div>
+</header>

@@ -3,7 +3,7 @@ from ordered_model.models import OrderedModel
 from django.db import models
 from ckeditor.fields import RichTextField
 from colorfield.fields import ColorField
-
+from furniture.models.category_model import Category
 
 class WoodInformation(OrderedModel):
     wood_name_en = models.CharField(max_length=255, blank=True, null=True, help_text='Name of Wood')
@@ -20,10 +20,12 @@ class WoodInformation(OrderedModel):
     image_1 = models.ImageField(upload_to='woods/')
     image_2 = models.ImageField(upload_to='woods/', null=True)
     image_3 = models.ImageField(upload_to='woods/', null=True)
-    color = ColorField(null=True)
+    is_ready = models.BooleanField(null=True , blank=True , default=False)
+    publication_date = models.DateField(null=True, auto_now_add=True)
+    category = models.ForeignKey(Category , on_delete=models.SET_NULL , null=True)
 
     class Meta(OrderedModel.Meta):
         pass
 
     def __str__(self):
-        return self.wood_name
+        return self.wood_name_en
