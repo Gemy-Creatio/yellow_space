@@ -20,6 +20,15 @@
                     <p>{{ blog.description_1_en |safe|capfirst }}</p>
                   </div>
                 {% endif %}
+                <div class="card-footer">
+                  <div class="text-center">
+                    {% if LANGUAGE_CODE == 'ar' %}
+                    <a class="btn btn-dark text-white" href="{% url 'blog-detail' blog.pk %}"> تفاصيل</a>
+                    {% else %}
+                    <a class="btn btn-dark text-white" href="{% url 'blog-detail' blog.pk %}"> details</a>
+                    {% endif %}
+                  </div>
+                </div>
               </div>
             
             {% endfor %}
