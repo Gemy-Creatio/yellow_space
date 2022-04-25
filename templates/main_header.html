@@ -1,0 +1,63 @@
+ {% load static %}
+<nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3  navbar-transparent mt-4">
+    <div class="container">
+      <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 text-white" href="../pages/dashboards/default.html">
+         <img src="" class="logo"/>
+      </a>
+      <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon mt-2">
+          <span class="navbar-toggler-bar bar1"></span>
+          <span class="navbar-toggler-bar bar2"></span>
+          <span class="navbar-toggler-bar bar3"></span>
+        </span>
+      </button>
+      <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0" id="navigation">
+        <ul class="navbar-nav navbar-nav-hover mx-auto">
+            {% if LANGUAGE_CODE == 'ar' %}
+            <li class="nav-item">
+                <a class="nav-link me-2" href="{% url 'home-page' %}">
+                  الرئيسية
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link me-2" href="{% url 'contact-page' %}">
+                  إتصل بنا
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link me-2" href="{% url 'blog-list' %}">
+                  خليك خبير
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link me-2" href="{% url 'about-page' %}">
+                  عن يلو سباس
+                </a>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link me-2" href="{% url 'home-page' %}">
+                  Home
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link me-2" href="{% url 'contact-page' %}">
+                  Contact Us
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link me-2" href="{% url 'blog-list' %}">
+                  Be an Expert
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link me-2" href="{% url 'about-page' %}">
+                  About
+                </a>
+              </li>
+              {% endif %}
+              {% include 'partials/_DashLanguage.html' %}
+        </ul>
+      </div>
+    </div>
+  </nav>

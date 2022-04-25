@@ -8,13 +8,13 @@
         {% if LANGUAGE_CODE == 'ar' %}
             <li class="sidebar-nav-item"><a href="{% url 'home-page' %}">الرئيسية</a></li>
             <li class="sidebar-nav-item"><a href="{% url 'contact-page' %}">إتصل بنا</a></li>
+            <li class="sidebar-nav-item"><a href="{% url 'about-page' %}">عن يلو سباس </a></li>
             <li class="sidebar-nav-item"><a href="{% url 'blog-list' %}">خليك خبير</a></li>
-            <li class="sidebar-nav-item"><a href="#contact">الشروط والأحكام </a></li>
         {% else %}
                 <li class="sidebar-nav-item"><a href="{% url 'home-page' %}">Home</a></li>
                 <li class="sidebar-nav-item"><a href="{% url 'contact-page' %}"> Contact</a></li>
+                <li class="sidebar-nav-item"><a href="{% url 'about-page' %}"> About Us</a></li>
                 <li class="sidebar-nav-item"><a href="{% url 'blog-list' %}">Be an Expert </a></li>
-                <li class="sidebar-nav-item"><a href="#services">Services</a></li>
 
         {% endif %}
 

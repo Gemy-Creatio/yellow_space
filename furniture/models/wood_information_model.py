@@ -4,6 +4,7 @@ from django.db import models
 from ckeditor.fields import RichTextField
 from colorfield.fields import ColorField
 from furniture.models.category_model import Category
+from django.templatetags.static import static
 
 class WoodInformation(OrderedModel):
     wood_name_en = models.CharField(max_length=255, blank=True, null=True, help_text='Name of Wood')
@@ -23,7 +24,24 @@ class WoodInformation(OrderedModel):
     is_ready = models.BooleanField(null=True , blank=True , default=False)
     publication_date = models.DateField(null=True, auto_now_add=True)
     category = models.ForeignKey(Category , on_delete=models.SET_NULL , null=True)
-
+    @property
+    def image_1_url(self):
+        if self.image_1 and hasattr(self.image_1, 'url'):
+             return self.image_1.url
+        else:
+            return static("assets/img/YS logo F-01.jpg")
+    @property
+    def image_2_url(self):
+        if self.image_2 and hasattr(self.image_2, 'url'):
+             return self.image_2.url
+        else:
+            return static("assets/img/YS logo F-01.jpg")
+    @property
+    def image_3_url(self):
+        if self.image_3 and hasattr(self.image_3, 'url'):
+             return self.image_3.url
+        else:
+            return static("assets/img/YS logo F-01.jpg")
     class Meta(OrderedModel.Meta):
         pass
 

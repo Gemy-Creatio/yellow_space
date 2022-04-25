@@ -1,0 +1,25 @@
+
+ <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg" style="background-image: url('{{ cat.image_url }}');">
+    <span class="mask bg-gradient-dark opacity-6"></span>
+    <div class="container">
+    
+      <div class="row justify-content-center pt-4">
+        <div class="col-lg-5 text-center mx-auto">
+          {% if content.title_ar == None %}
+          <h1 class="text-white mb-2 mt-5">Yellow Space!</h1>
+          <p class="text-lead text-white">Best Designs For All Tastes </p>
+          {% else %}
+          {% if LANGUAGE_CODE == 'ar' %}
+          <h1 class="text-white mb-2 mt-5">{{content.title_ar | safe }}</h1>
+          <p class="text-lead text-white"> {{ content.content_ar | safe }} </p>
+          {% else %}
+          <h1 class="text-white mb-2 mt-5">{{content.title_en | safe}}</h1>
+          <p class="text-lead text-white"> {{ content.content_en | safe }} </p>
+          {% endif %}
+          {% endif %}
+        
+        </div>
+      </div>
+    </div>
+  </div>
+  

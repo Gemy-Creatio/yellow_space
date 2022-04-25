@@ -1,0 +1,40 @@
+
+{% load static %}
+
+<div class="container">
+   <div class="row mt-lg-n10 mt-md-n11 mt-n10">
+     {% for blog in content  %}
+     <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
+       <div class="card z-index-0">
+         <div class="card-header text-center pt-4">
+           <img src="{{ blog.image_1.url }}" alt="card_img" class="card-img" width="600">
+         </div>
+         <div class="card-body">
+           {% if LANGUAGE_CODE == 'ar' %}
+           <div class="mb-3">
+             <span class="tag tag-blue" style=" align-self: flex-end;">{{ blog.category.name_ar |safe}}</span>
+                 <h4>{{ blog.wood_name_ar |safe}}</h4>
+                 <p>{{ blog.description_1_ar |safe }}</p>
+           </div>
+           {% else %}
+           <div class="mb-3">
+             <span class="tag tag-blue" style=" align-self: flex-end;">{{ blog.category.name_ar |safe}}</span>
+                 <h4>{{ blog.wood_name_ar |safe}}</h4>
+                 <p>{{ blog.description_1_ar |safe }}</p>
+           </div>
+           {% endif %}
+         </div>
+         <div class="card-footer">
+           <div class="text-center">
+             {% if LANGUAGE_CODE == 'ar' %}
+             <a class="btn btn-dark text-white" href="{% url 'blog-detail' blog.pk %}"> تفاصيل</a>
+             {% else %}
+             <a class="btn btn-dark text-white" href="{% url 'blog-detail' blog.pk %}"> details</a>
+             {% endif %}
+           </div>
+         </div>
+       </div>
+     </div>
+     {% endfor %}
+   </div>
+ </div>

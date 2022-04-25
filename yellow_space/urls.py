@@ -13,7 +13,7 @@ urlpatterns = [
 urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
-    path('explore', include('furniture.urls')),
+    path('explore/', include('furniture.urls')),
 
 ) 
 

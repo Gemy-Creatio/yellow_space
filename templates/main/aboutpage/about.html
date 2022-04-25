@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+{% block style %}
+<style>
+  ul li {
+    list-style-type: none;
+  }
+</style>
+{% endblock style %}
+
+
+{% load static %}
+
+{% block content %}
+<section class="min-vh-100 mb-8">
+    {% include 'main/aboutpage/_aboutIntro.html' with content=content %}
+    {% include 'main/aboutpage/_aboutContent.html' with content=content %}
+    {% include 'main/aboutpage/_FAQ.html' with faqs=faqs %}
+
+  </section>
+
+{% endblock content %}
+
+

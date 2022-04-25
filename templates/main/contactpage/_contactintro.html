@@ -1,4 +1,27 @@
-<header class="abouthead d-flex align-items-center"  >
-    <div class="container px-4 px-lg-5 d-flex justify-content-start flex-column">
+
+<div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg" style="background-image: url('{{ content.image_url }}');">
+    <span class="mask bg-gradient-dark opacity-6"></span>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-5 text-center mx-auto">
+          {% if content.head_ar == None %}
+          <h1 class="text-white mb-2 mt-5">Yellow Space!</h1>
+          <p class="text-xs text-white">Best Designs For All Tastes </p>
+          {% else %}
+          {% if LANGUAGE_CODE == 'ar' %}
+          <h1 class="text-white mb-2 mt-5">{{content.head_ar | safe }}</h1>
+          <p class="text-xs text-white"> {{ content.description_ar | safe }} </p>
+          {% else %}
+          <h1 class="text-white mb-2 mt-5">{{content.head_en | safe}}</h1>
+          <p class="text-xs text-white"> {{ content.description_en | safe }} </p>
+          {% endif %}
+          {% endif %}
+        
+        </div>
+      </div>
     </div>
-</header>
+  </div>
+
+
+
+  

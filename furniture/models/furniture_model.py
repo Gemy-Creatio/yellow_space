@@ -3,7 +3,8 @@ from ordered_model.models import OrderedModel
 from django.db import models
 from ckeditor.fields import RichTextField
 from colorfield.fields import ColorField
-from .category_model import Category
+from  projects.models import ProjectTypes
+from django.templatetags.static import static
 
 
 class Furniture(OrderedModel):
@@ -25,8 +26,32 @@ class Furniture(OrderedModel):
     is_for_offer = models.BooleanField(null=True, blank=True)
     offer_value = models.SmallIntegerField(null=True, blank=True)
     color = ColorField(null=True)
-    catgeory = models.ForeignKey(Category, on_delete=models.CASCADE)
+    catgeory = models.ForeignKey(ProjectTypes, on_delete=models.CASCADE)
     date_added = models.DateField(auto_now_add=True, null=True)
+    @property
+    def picture_1_url(self):
+        if self.picture_1 and hasattr(self.picture_1, 'url'):
+             return self.picture_1.url
+        else:
+            return static("assets/img/YS logo F-01.jpg")
+    @property
+    def picture_2_url(self):
+        if self.picture_2 and hasattr(self.picture_2, 'url'):
+             return self.picture_2.url
+        else:
+            return static("assets/img/YS logo F-01.jpg")
+    @property
+    def picture_3_url(self):
+        if self.picture_3 and hasattr(self.picture_3, 'url'):
+             return self.picture_3.url
+        else:
+            return static("assets/img/YS logo F-01.jpg")
+    @property
+    def picture_4_url(self):
+        if self.picture_4 and hasattr(self.picture_4, 'url'):
+             return self.picture_4.url
+        else:
+            return static("assets/img/YS logo F-01.jpg")
 
     def __str__(self):
         return f'{self.name_ar} , {self.code} '

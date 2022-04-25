@@ -1,4 +1,3 @@
-from pyexpat import model
 from django.views.generic import DetailView
 from furniture.models.wood_information_model import WoodInformation
 

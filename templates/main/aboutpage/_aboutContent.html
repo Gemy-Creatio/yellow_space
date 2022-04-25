@@ -1,0 +1,25 @@
+{% load static %}
+
+ <div class="container">
+    <div class="row mt-lg-n10 mt-md-n11 mt-n10">
+      <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
+        <div class="card z-index-0">
+          <div class="card-header">
+            {% if LANGUAGE_CODE == 'ar' %}
+            <h5 class="text-black-50 text-center mb-2 mt-5">{{content.title_ar | safe}}</h5>
+{% else %}
+<h5 class="text-black-50 text-center mb-2 mt-5">{{content.title_en | safe}}</h5>
+
+{% endif %}
+          </div>
+          <div class="card-body">
+            {% if LANGUAGE_CODE == 'ar' %}
+            <p class="text-center text-black-50"> {{ content.content_ar | safe }} </p>
+            {% else %}
+            <p class="text-center text-black-50"> {{ content.content_en | safe }} </p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

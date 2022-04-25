@@ -1,61 +1,60 @@
-<div class="container pt-3">
-    {% if LANGUAGE_CODE == 'ar' %}
-   <div class="card">
-       <div class="card-header">
-           <div class="text-center">
-          <p>  {{content.wood_name_ar | safe}}        </p>
-           </div>
-       </div>
-    <div class="row pt-2 d-flex justify-content-center">
-        <div class="col-6 text-center">
-            {{content.description_4_ar | safe }}
+
+        {% load static %}
+
+        <div class="container">
+           <div class="row mt-lg-n10 mt-md-n11 mt-n10">
+             <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
+               <div class="card z-index-0">
+                 <div class="card-header text-center pt-4">
+                    {% if LANGUAGE_CODE == 'ar' %}
+
+                 <h5>                    {{content.wood_name_ar | safe}}                </h5>
+                    {% else %}
+                    <h5>                   {{content.wood_name_en | safe | capfirst}}               </h5>
+                    {% endif %}
+                 </div>
+                 <div class="card-body">
+                   {% if LANGUAGE_CODE == 'ar' %}
+                   <div class="row pt-2 d-flex justify-content-center">
+                    <div class="col-12 text-center">
+                        {{content.description_4_ar | safe }}
+                         </div>
+            
+                    <div class="col-12 text-center">
+                     {{content.description_1_ar | safe }}
+                    </div>
+                 </div>
+                 <div class="row pt-2">
+                 <div class="col-12 text-center">
+                {{content.description_2_ar | safe }}
+                 </div>
+                 <div class="col-12 text-center">
+                    {{content.description_3_ar | safe }}
+                     </div>
+                 </div>
+             
+                   {% else %}
+                   <div class="row pt-2 d-flex justify-content-center">
+                    <div class="col-12 text-center">
+                        {{content.description_4_en | safe | capfirst }}
+                         </div>
+            
+                    <div class="col-12 text-center">
+                     {{content.description_1_en | safe | capfirst }}
+                    </div>
+                 </div>
+                 <div class="row pt-2">
+                 <div class="col-12 text-center">
+                {{content.description_2_en | safe | capfirst }}
+                 </div>
+                 <div class="col-12 text-center">
+                    {{content.description_3_en | safe | capfirst }}
+                     </div>
+                 </div>
+                   {% endif %}
+                 </div>
+                
+               </div>
              </div>
-
-        <div class="col-6 text-center">
-         {{content.description_1_ar | safe }}
-        </div>
-     </div>
-     <div class="row pt-2">
-     <div class="col-6 text-center">
-    {{content.description_2_ar | safe }}
-     </div>
-     <div class="col-6 text-center">
-        {{content.description_3_ar | safe }}
+           </div>
          </div>
-     </div>
- 
- 
-   </div>
- 
-
-    {% else %}
-    <div class="card">
-        <div class="card-header">
-            <div class="text-center">
-           <p>  {{content.wood_name_en | safe | capfirst}}        </p>
-            </div>
-        </div>
-     <div class="row pt-2 d-flex justify-content-center">
-         <div class="col-6 text-center">
-             {{content.description_4_en | safe | capfirst }}
-              </div>
- 
-         <div class="col-6 text-center">
-          {{content.description_1_en | safe | capfirst }}
-         </div>
-      </div>
-      <div class="row pt-2">
-      <div class="col-6 text-center">
-     {{content.description_2_en | safe | capfirst }}
-      </div>
-      <div class="col-6 text-center">
-         {{content.description_3_en | safe | capfirst }}
-          </div>
-      </div>
-  
-  
-    </div>
-  
- 
-    {% endif %}
-        </div>

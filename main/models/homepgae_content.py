@@ -41,8 +41,8 @@ class Homepage(SingletonModel):
         return f"{self.email}"
 
     def categories(self):
-        from furniture.models.category_model import Category
-        return Category.objects.all()
+        from projects.models import ProjectTypes
+        return ProjectTypes.objects.all()
 
     def furniture(self):
         from furniture.models.furniture_model import Furniture

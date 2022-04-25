@@ -1,0 +1,1 @@
+from .project_types_model import ProjectTypes

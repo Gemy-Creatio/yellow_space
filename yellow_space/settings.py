@@ -51,6 +51,7 @@ INSTALLED_APPS = [
      'crispy_forms',
     'main',
     'furniture',
+    'projects',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -95,8 +96,8 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": os.getenv("POSTGRES_DB", "yellow_spaceDb"),
-        "USER": os.getenv("POSTGRES_USER", "devuser"),
-        "PASSWORD": os.getenv("POSTGRES_PASSWORD", "devuser"),
+        "USER": os.getenv("POSTGRES_USER", "postgres"),
+        "PASSWORD": os.getenv("POSTGRES_PASSWORD", "gemy2803150"),
         "HOST": os.getenv("POSTGRES_HOST", "localhost"),
         "PORT": 5432,
     }

@@ -1,4 +1,4 @@
-{% extends 'masterpage.html' %}
+{% extends 'main.html' %}
 {% block style %}
  <style>
      label {
@@ -11,7 +11,7 @@
 
 {% block content %}
 
- {% include 'main/contactpage/_contactintro.html' %}
+ {% include 'main/contactpage/_contactintro.html' with content=content %}
  {% include 'main/contactpage/_contactform.html' %}
 
 {% endblock content %}

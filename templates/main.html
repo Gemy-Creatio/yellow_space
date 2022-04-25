@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+{% if LANGUAGE_CODE == 'ar' %}
+<html lang="ar" dir="rtl">
+  {% else %}
+  <html lang="en">
+
+  {% endif %}
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <title>
+   {% block title %}Yellow Space{% endblock title %}
+  </title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <link href="{% static 'dash/assets/css/nucleo-icons.css' %}" rel="stylesheet" />
+  <link href="{% static 'dash/assets/css/nucleo-svg.css' %}" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" integrity="sha384-ejwKkLla8gPP8t2u0eQyL0Q/4ItcnyveF505U0NIobD/SMsNyXrLti6CWaD0L52l" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <link href="{% static 'dash/assets/css/nucleo-svg.css' %}" rel="stylesheet" />
+  <link id="pagestyle" href="{% static 'dash/assets/css/soft-ui-dashboard.css' %}" rel="stylesheet" />
+  <link
+  rel="apple-touch-icon"
+  sizes="100x100"
+  href="{% static 'assets/img/logo.png' %}"
+/>
+<link
+  rel="icon"
+  sizes="100x100"
+  type="image/png"
+  href="{% static 'assets/img/logo.png' %}"
+/>
+{% block style %}{% endblock style %}
+</head>
+
+<body class="g-sidenav-show  bg-gray-100">
+   {% include 'main_header.html' %}
+  {% block content %}
+  
+  {% endblock content %}
+    {% include 'main_footer.html' %}
+  <script src="{% static 'dash/assets/js/core/popper.min.js' %}"></script>
+  <script src="{% static 'dash/assets/js/core/bootstrap.min.js' %}"></script>
+  <script src="{% static 'dash/assets/js/plugins/perfect-scrollbar.min.js' %}"></script>
+  <script src="{% static 'dash/assets/js/plugins/smooth-scrollbar.min.js' %}"></script>
+  <script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
+      }
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+  </script>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <script src="{% static 'dash/assets/js/soft-ui-dashboard.min.js' %}"></script>
+</body>
+
+</html>
