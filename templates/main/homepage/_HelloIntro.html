@@ -1,4 +1,4 @@
-<header class="masthead d-flex align-items-center" style="background-image: url('{{ content.homepage_background.url }}')" >
+<header class="masthead d-flex align-items-center" style="background-image: url('{{ content.image_url }}')" >
             <div class="container px-4 px-lg-5">
                                      {% if LANGUAGE_CODE == 'ar' %}
                 <h1 class="mb-1">{{ content.header_ar|safe }}</h1>
@@ -13,8 +13,13 @@
                 <h3 class="mb-5">{{ content.subheader_en|safe|capfirst }}</h3>
 
                                          <div class="row  col-3 justify-content-center">
-                                         <a class="btn btn-primary btn-sm" style="background-color: {{ content.btn_color |safe }}" href="#about">{{ content.btn_text_en|safe|capfirst }}</a>
+                                       {% if content.btn_color is None  %}
+                                 <a class="btn btn-primary btn-sm" style="background-color: {{ content.btn_color |safe }}" href="#about">{{ content.btn_text_en|safe|capfirst }}</a>
 
+                                       {% else %}
+                                       <a class="btn btn-primary btn-sm" style="background-color: {{ content.btn_color |safe }}" href="#about">{{ content.btn_text_en|safe|capfirst }}</a>
+
+                                       {% endif %}
                                          </div>
                 {% endif %}
             </div>

@@ -2,6 +2,7 @@ from ckeditor.fields import RichTextField
 from colorfield.fields import ColorField
 from solo.models import SingletonModel
 from django.db import models
+from django.templatetags.static import static
 
 
 class Homepage(SingletonModel):
@@ -33,7 +34,18 @@ class Homepage(SingletonModel):
     instagram_link = models.URLField(null=True, blank=True)
     youtube_link = models.URLField(null=True, blank=True)
     twitter_link = models.URLField(null=True, blank=True)
-
+    @property
+    def show_section_background_url(self):
+        if self.show_section_background and hasattr(self.show_section_background, 'url'):
+             return self.show_section_background.url
+        else:
+            return static("assets/img/YS logo F-01.jpg")
+    @property
+    def image_url(self):
+        if self.homepage_background and hasattr(self.homepage_background, 'url'):
+             return self.homepage_background.url
+        else:
+            return static("assets/img/home1.jpeg")
     class Meta(SingletonModel.Meta):
         pass
 
