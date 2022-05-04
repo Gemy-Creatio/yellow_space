@@ -1,0 +1,38 @@
+{% load static %}
+
+  <div class="col-lg-8 entries">
+    {% for proj in content  %}
+    <article class="entry">
+
+      <div class="entry-img">
+        <img src="{{ proj.picture_1_url }}" alt="" class="img-fluid">
+      </div>
+      {% if LANGUAGE_CODE == 'ar' %}
+      <h2 class="entry-title">
+        <a href="{% url 'project-detail' proj.pk %}">{{ proj.name_ar |safe}}</a>
+      </h2>
+      <div class="entry-content">
+        <p>
+          {{ proj.description_1_ar |safe }}
+        </p>
+        <div class="read-more">
+          <a href="{% url 'project-detail' proj.pk %}">تفاصيل </a>
+        </div>
+      </div>
+{% else %}
+<h2 class="entry-title">
+  <a href="{% url 'project-detail' proj.pk %}">{{ proj.name_en |safe}}</a>
+</h2>
+<div class="entry-content">
+  <p>
+    {{ proj.description_1_en |safe }}
+  </p>
+  <div class="read-more">
+    <a href="{% url 'project-detail' proj.pk %}">Read More </a>
+  </div>
+</div>
+{% endif %}
+    </article>
+  {% endfor %}
+  {% include 'partials/_pagination.html' with page_obj=content %}
+  </div>

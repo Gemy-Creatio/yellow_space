@@ -1,60 +1,71 @@
 
-        {% load static %}
+         <div class="col-lg-8 entries">
 
-        <div class="container">
-           <div class="row mt-lg-n10 mt-md-n11 mt-n10">
-             <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
-               <div class="card z-index-0">
-                 <div class="card-header text-center pt-4">
-                    {% if LANGUAGE_CODE == 'ar' %}
+          <article class="entry entry-single">
 
-                 <h5>                    {{content.wood_name_ar | safe}}                </h5>
-                    {% else %}
-                    <h5>                   {{content.wood_name_en | safe | capfirst}}               </h5>
-                    {% endif %}
-                 </div>
-                 <div class="card-body">
-                   {% if LANGUAGE_CODE == 'ar' %}
-                   <div class="row pt-2 d-flex justify-content-center">
-                    <div class="col-12 text-center">
-                        {{content.description_4_ar | safe }}
-                         </div>
-            
-                    <div class="col-12 text-center">
-                     {{content.description_1_ar | safe }}
-                    </div>
-                 </div>
-                 <div class="row pt-2">
-                 <div class="col-12 text-center">
-                {{content.description_2_ar | safe }}
-                 </div>
-                 <div class="col-12 text-center">
-                    {{content.description_3_ar | safe }}
-                     </div>
-                 </div>
-             
-                   {% else %}
-                   <div class="row pt-2 d-flex justify-content-center">
-                    <div class="col-12 text-center">
-                        {{content.description_4_en | safe | capfirst }}
-                         </div>
-            
-                    <div class="col-12 text-center">
-                     {{content.description_1_en | safe | capfirst }}
-                    </div>
-                 </div>
-                 <div class="row pt-2">
-                 <div class="col-12 text-center">
-                {{content.description_2_en | safe | capfirst }}
-                 </div>
-                 <div class="col-12 text-center">
-                    {{content.description_3_en | safe | capfirst }}
-                     </div>
-                 </div>
-                   {% endif %}
-                 </div>
-                
-               </div>
-             </div>
-           </div>
-         </div>
+            <div class="entry-img">
+              <img src="{{content.image_1_url}}" alt="" class="img-fluid">
+            </div>
+            {% if LANGUAGE_CODE == 'ar' %}
+            <h2 class="entry-title">
+              <a href="{% url 'blog-detail' content.pk %}">{{content.wood_name_ar | safe}}</a>
+            </h2>
+
+            <div class="entry-meta">
+              <ul>
+                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="{% url 'blog-detail' content.pk %}"><time datetime="{{ content.publication_date }}">{{ content.publication_date }}</time></a></li>
+              </ul>
+            </div>
+
+            <div class="entry-content">
+              <p>
+                {{content.description_1_ar | safe }}
+              </p>
+              <blockquote>
+                <p>
+                  {{content.description_2_ar | safe }}
+                </p>
+              </blockquote>
+
+              <p>
+                {{content.description_3_ar | safe }}
+              </p>
+              <img src="{{ content.image_2_url }}" class="img-fluid" alt="">
+              <p>
+                {{content.description_4_ar | safe }}
+              </p>
+              <img src="{{ content.image_3_url }}" class="img-fluid" alt="">
+               {% else %}
+               <h2 class="entry-title">
+                <a href="{% url 'blog-detail' content.pk %}">{{content.wood_name_en | safe}}</a>
+              </h2>
+  
+              <div class="entry-meta">
+                <ul>
+                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="{% url 'blog-detail' content.pk %}"><time datetime="{{ content.publication_date }}">{{ content.publication_date }}</time></a></li>
+                </ul>
+              </div>
+  
+              <div class="entry-content">
+                <p>
+                  {{content.description_1_en | safe }}
+                </p>
+                <blockquote>
+                  <p>
+                    {{content.description_2_en | safe }}
+                  </p>
+                </blockquote>
+  
+                <p>
+                  {{content.description_3_en | safe }}
+                </p>
+                <img src="{{ content.image_2_url }}" class="img-fluid" alt="">
+                <p>
+                  {{content.description_4_en | safe }}
+                </p>
+                <img src="{{ content.image_3_url }}" class="img-fluid" alt="">
+
+               {% endif %}
+            </div>
+          </article><!-- End blog entry -->
+        </div>

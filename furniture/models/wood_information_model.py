@@ -23,7 +23,7 @@ class WoodInformation(OrderedModel):
     image_3 = models.ImageField(upload_to='woods/', null=True)
     is_ready = models.BooleanField(null=True , blank=True , default=False)
     publication_date = models.DateField(null=True, auto_now_add=True)
-    category = models.ForeignKey(Category , on_delete=models.SET_NULL , null=True)
+    category = models.ForeignKey(Category , on_delete=models.SET_NULL , null=True , related_name='cats')
     @property
     def image_1_url(self):
         if self.image_1 and hasattr(self.image_1, 'url'):

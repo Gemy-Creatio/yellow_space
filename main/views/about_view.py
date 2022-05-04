@@ -10,7 +10,6 @@ from django.shortcuts import render
 class AboutPageView(View):
     def get(self, request):
         about_content = AboutPage.get_solo()
-        faqs = FAQ.objects.filter(is_show=True)
-        return render(request, 'main/aboutpage/about.html', {"content": about_content , "faqs": faqs})
+        return render(request, 'main/aboutpage/about.html', {"content": about_content})
 
 

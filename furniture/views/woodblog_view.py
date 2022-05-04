@@ -1,5 +1,4 @@
 
-from django.views.generic import ListView
 from furniture.models.wood_information_model import  WoodInformation
 from django.contrib import messages
 from django.core.paginator import Paginator

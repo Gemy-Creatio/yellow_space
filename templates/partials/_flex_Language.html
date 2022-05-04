@@ -1,0 +1,14 @@
+{% load i18n %}
+<form action="{% url 'set_language' %}" method="post">
+    {% csrf_token %}
+    {% get_current_language as LANGUAGE_CODE %}
+    {% if LANGUAGE_CODE == 'ar' %}
+        <button type='submit' name='language' value='en' class="nav-link scrollto" style="background: none; border:none; color:black;">
+            <span class="label"></span>English
+        </button>
+    {% else %}
+        <button type='submit' name='language' value='ar' class="nav-link scrollto" style="background: none; border:none; color:black;">
+            عربي
+        </button>
+    {% endif %}
+</form>

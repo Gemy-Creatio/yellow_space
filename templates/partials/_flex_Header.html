@@ -1,0 +1,41 @@
+{% load static %}
+<header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div class="logo">
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <a href="{% url 'home-page' %}"><img src="{% static 'assets/img/logo.png' %}" alt="" class="img-fluid"></a>
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+            {% if LANGUAGE_CODE == 'ar' %}
+            {% url 'home-page' as url %}
+          <li><a {% if request.path == url %} class="nav-link scrollto active" {% else %} class="nav-link scrollto" {% endif %} href="{{ url }}">الرئيسية</a></li>
+          {% url 'about-page' as about %}
+          <li><a {% if request.path == about %} class="nav-link scrollto active" {% else %} class="nav-link scrollto" {% endif %} href="{{ about }}">عن باو هاوس</a></li>
+          {% url 'contact-page' as contact %}
+          <li><a {% if request.path == contact %} class="nav-link scrollto active" {% else %} class="nav-link scrollto" {% endif %} href="{{ contact }}">إتصل بنا</a></li>
+          {% url 'blog-list' as blog %}
+          <li><a {% if request.path == blog %} class="nav-link scrollto active" {% else %} class="nav-link scrollto" {% endif %} href="{{ blog }}">مقالات</a></li>
+          {% url 'all-projects' as projects %}
+          <li><a {% if request.path == projects %} class="nav-link scrollto active" {% else %} class="nav-link scrollto" {% endif %} href="{{ projects }}">أعمالنا</a></li>
+          {% else %}
+          {% url 'home-page' as url %}
+          <li><a {% if request.path == url %} class="nav-link scrollto active" {% else %} class="nav-link scrollto" {% endif %} href="{{ url }}">Home</a></li>
+          {% url 'about-page' as about %}
+          <li><a {% if request.path == about %} class="nav-link scrollto active" {% else %} class="nav-link scrollto" {% endif %} href="{{ about }}">About Us</a></li>
+          {% url 'contact-page' as contact %}
+          <li><a {% if request.path == contact %} class="nav-link scrollto active" {% else %} class="nav-link scrollto" {% endif %} href="{{ contact }}">Contact Us </a></li>
+          {% url 'blog-list' as blog %}
+          <li><a {% if request.path == blog %} class="nav-link scrollto active" {% else %} class="nav-link scrollto" {% endif %} href="{{ blog }}">Blogs</a></li>
+          {% url 'all-projects' as projects %}
+          <li><a {% if request.path == projects %} class="nav-link scrollto active" {% else %} class="nav-link scrollto" {% endif %} href="{{ projects }}">Projects</a></li>
+          {% endif %}
+          {% include 'partials/_flex_Language.html' %}
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+
+    </div>
+  </header>

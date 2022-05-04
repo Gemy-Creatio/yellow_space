@@ -1,26 +1,19 @@
-<header class="masthead d-flex align-items-center" style="background-image: url('{{ content.image_url }}')" >
-            <div class="container px-4 px-lg-5">
-                                     {% if LANGUAGE_CODE == 'ar' %}
-                <h1 class="mb-1">{{ content.header_ar|safe }}</h1>
-                <h3 class="mb-5">{{ content.subheader_ar|safe }}</h3>
-
-                                         <div class="row col-3 justify-content-center">
-                                         <a class="btn btn-primary btn-sm" style="border: none;background-color: {{ content.btn_color|safe }}">{{ content.btn_text_ar|safe }}</a>
-
-                                         </div>
-                {% else %}
-                  <h1 class="mb-1">{{ content.header_en|safe|capfirst }}</h1>
-                <h3 class="mb-5">{{ content.subheader_en|safe|capfirst }}</h3>
-
-                                         <div class="row  col-3 justify-content-center">
-                                       {% if content.btn_color is None  %}
-                                 <a class="btn btn-primary btn-sm" style="background-color: {{ content.btn_color |safe }}" href="#about">{{ content.btn_text_en|safe|capfirst }}</a>
-
-                                       {% else %}
-                                       <a class="btn btn-primary btn-sm" style="background-color: {{ content.btn_color |safe }}" href="#about">{{ content.btn_text_en|safe|capfirst }}</a>
-
-                                       {% endif %}
-                                         </div>
-                {% endif %}
+        <section id="hero" class="d-flex flex-column justify-content-center align-items-center" style="background:url('{{ content.image_url }}') center center ; ">
+          <div class="container" data-aos="fade-in">
+            {% if LANGUAGE_CODE == 'ar' %}
+            <h1>{{ content.header_ar|safe }}</h1>
+            <h2>{{ content.subheader_ar|safe }}</h2>
+            <div class="d-flex align-items-center">
+              <i class="bx bxs-right-arrow-alt get-started-icon"></i>
+              <a href="#about" class="btn-get-started scrollto" style="background-color: {{ content.btn_color |safe }}" >{{ content.btn_text_ar|safe }}</a>
             </div>
-        </header>
+            {% else %}
+            <h1> {{ content.header_en|safe|capfirst }}</h1>
+            <h2>{{ content.subheader_en|safe|capfirst }}</h2>
+            <div class="d-flex align-items-center">
+              <i class="bx bxs-right-arrow-alt get-started-icon"></i>
+              <a href="#about" class="btn-get-started scrollto" style="background-color: {{ content.btn_color |safe }}"  >{{ content.btn_text_en|safe|capfirst }}</a>
+            </div>
+            {% endif %}
+          </div>
+        </section>

@@ -1,7 +1,6 @@
 from django_extensions.db.fields import AutoSlugField
 from ordered_model.models import OrderedModel
 from django.templatetags.static import static
-from django.urls import reverse
 from django.db import models
 from ckeditor.fields import RichTextField
 
@@ -15,7 +14,7 @@ class ProjectTypes(OrderedModel):
     picture = models.ImageField(upload_to="proj-icons/")
    
     def image_url(self):
-        return self.picture.url if self.picture else static("images/category/category.png")
+        return self.picture.url if self.picture else static("assets/img/logo.png")
 
 
     def __str__(self):

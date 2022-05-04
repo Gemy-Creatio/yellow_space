@@ -1,10 +1,36 @@
 
- <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg" style="background-image: url('{{ content.image_url }}');">
-    <span class="mask bg-gradient-dark opacity-6"></span>
+  <section id="about" class="about">
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-5 text-center mx-auto"> 
+
+      <div class="row">
+        <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch position-relative" style="background: url('{{ content.image_url }};') center center no-repeat; background-image: url('{{ content.image_url }} " data-aos="fade-right">
+          <a href="{{ content.video_url }}" class="glightbox play-btn mb-4"></a>
+        </div>
+
+        <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
+          {% if LANGUAGE_CODE == 'ar' %}
+          <h4 data-aos="fade-up">{{ content.title_ar | safe }}</h4>
+          <p data-aos="fade-up"> {{ content.content_ar | safe}}</p>
+           {% else %}
+           <h4 data-aos="fade-up">{{ content.title_ar | safe }}</h4>
+           <p data-aos="fade-up"> {{ content.content_ar | safe}}</p>
+           {% endif %}
+           {% for cat in content.categories  %}
+          <div class="icon-box" data-aos="fade-up">
+            {% if LANGUAGE_CODE == 'ar' %}
+            <div class="icon"><i class="bx bx-fingerprint"></i></div>
+            <h4 class="title"><a href="">{{ cat.name_ar | safe }}</a></h4>
+            <p class="description">{{ cat.content_ar | safe }}</p>
+           {% else %}
+           <h4 class="title"><a href="">{{ cat.name_en | safe }}</a></h4>
+           <p class="description">{{ cat.content_en | safe }}</p>
+           {% endif %}
+          </div>
+
+       
+          {% endfor %}
         </div>
       </div>
+
     </div>
-  </div>
+  </section>

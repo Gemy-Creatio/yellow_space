@@ -8,6 +8,10 @@ class FAQ(models.Model):
     answer_ar = RichTextField(null=True)
     answer_en = RichTextField(null=True)
     is_show = models.BooleanField(null=True , blank=True , default=False)
-
+    @property
+    def data_os(self):
+        return self.pk * 100
+    
+    
     def __str__(self):
         return self.answer_ar

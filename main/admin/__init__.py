@@ -4,3 +4,5 @@ from .blog_admin import BlogPageAdmin
 from .about_admin import AboutPageAdmin
 
 from .faq_admin import FAQPageAdmin
+
+from .staff_admin import StaffPageAdmin

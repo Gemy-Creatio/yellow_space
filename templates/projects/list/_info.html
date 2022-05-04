@@ -1,0 +1,48 @@
+
+<div class="col-lg-4">
+
+    <div class="sidebar">
+  
+      {% if LANGUAGE_CODE == 'ar' %}
+      <h3 class="sidebar-title">التصنيفات</h3>
+      {% else %}
+      <h3 class="sidebar-title">Categories</h3>
+      {% endif %}
+      <div class="sidebar-item categories">
+        <ul>
+          {% for cat in cats %}
+          {% if LANGUAGE_CODE == 'ar' %}
+          <li><a href="{% url 'all-projects-types' cat.pk %}">{{ cat.name_ar | safe }} <span>({{ cat.types.all.count }})</span></a></li>
+          {% else %}
+          <li><a href="{% url 'all-projects-types' cat.pk %}">{{ cat.name_en | safe }} <span>({{ cat.types.all.count }})</span></a></li>
+          {% endif %}
+          {% endfor %}
+        </ul>
+      </div><!-- End sidebar categories-->
+      {% if LANGUAGE_CODE == 'ar' %}
+      <h3 class="sidebar-title">أحدث المقالات </h3>
+  {% else %}
+  <h3 class="sidebar-title">Recent Posts</h3>
+  
+      {% endif %}
+      <div class="sidebar-item recent-posts">
+        {% for project in content.projects  %}
+        <div class="post-item clearfix">
+          <img src="{{ project.picture_1_url }}" alt="">
+          {% if LANGUAGE_CODE == 'ar' %}
+          <h4><a href="">{{project.name_ar | safe }}</a></h4>
+         {% else %}
+         <h4><a href="">{{project.name_en | safe }}</a></h4> 
+          {% endif %}
+  
+          <time datetime="{{ project.date_added }}">{{ project.date_added }}</time>
+        </div>
+        
+        {% endfor %}
+      </div><!-- End sidebar recent posts-->
+    </div><!-- End sidebar -->
+  
+  </div>
+  
+  
+  

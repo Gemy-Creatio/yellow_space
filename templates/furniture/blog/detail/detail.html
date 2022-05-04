@@ -1,43 +1,18 @@
-{% extends 'main.html' %}
+{% extends 'flex_main.html' %}
 {% load static %}
-
 {% block content %}
-{% include 'furniture/blog/detail/_detailIntro.html' with content=object %}
-{% include 'furniture/blog/detail/_detailShowdata.html' with content=object %}
-{% include 'furniture/blog/detail/_detailShowRoom.html' with content=object %}
+<main id="main">
+{% include 'furniture/blog/detail/_breadcrumbs.html' with content=object%}
+<section id="blog" class="blog">
+    <div class="container" data-aos="fade-up">
 
+      <div class="row">
+        {% include 'furniture/blog/detail/_detailShowdata.html' with content=object %}
+        {% include 'furniture/blog/list/_blogIntro.html' with content=content cats=cats %}
+      </div>
+    </div>
+</section>
 
-    
+</main>
 {% endblock content %}
-
-
-{% block scripts %}
-<script>
-$(()=> {
-    $('.owl-carousel').owlCarousel({
-        loop:true,
-        margin:10,
-        responsiveClass:true,
-        responsive:{
-            0:{
-                items:1,
-                nav:true
-            },
-            600:{
-                items:3,
-                nav:false
-            },
-            1000:{
-                items:5,
-                nav:true,
-                loop:false
-            }
-        }
-    })
-});
-
-</script>
-
-{% endblock scripts %}
-
-
+    

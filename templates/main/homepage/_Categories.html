@@ -1,30 +1,36 @@
-<section class="content-section bg-dark text-white text-center" id="services">
-    <div class="container px-4 px-lg-5">
-        <div class="content-section-heading">
-            {% if LANGUAGE_CODE == 'ar' %}
-                <h3 class="text-secondary mb-0">{{ content.category_title_ar | safe }}</h3>
-                <h2 class="text-white">{{ content.category_description_ar | safe }}</h2>
 
-            {% else %}
-                <h3 class="text-secondary mb-0">{{ content.category_title_en | safe }}</h3>
-                <h2 class="text-white">{{ content.category_description_en | safe }}</h2>
 
-            {% endif %}
-        </div>
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-            {% for cat in content.categories %}
-                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-                <span class="service-icon mx-auto mb-3"><img src="{{ cat.picture.url }}" class="cat-icon"/></span>
-                {% if LANGUAGE_CODE == 'ar' %}
-                    <h4 class="text-white"><strong>{{ cat.name_ar }}</strong></h4>
-                {% else %}
-                    <h4 class="text-white"><strong>{{ cat.name_en }}</strong></h4>
+<section id="services" class="services section-bg">
+    <div class="container">
 
-                {% endif %}
+      <div class="section-title" data-aos="fade-up">
+        {% if LANGUAGE_CODE == 'ar' %}
+        <h2>{{ content.category_title_ar | safe }}</h2>
+        <p> {{ content.category_description_ar | safe }} </p>
+       {% else %}
+       <h2>{{ content.category_title_en | safe |capfirst }}</h2>
+       <p> {{ content.category_description_en | safe | capfirst }} </p>
 
-            </div>
-
-            {% endfor %}
-        </div>
+       {% endif %}
     </div>
-</section>
+
+      <div class="row">
+        {% for cat in content.categories %}
+        <div class="col-lg-4 col-md-6" data-aos="fade-up">
+          <div class="icon-box">
+            <div class="icon"><img src="{{ cat.picture.url }}" class="card-img"/></div>
+            {% if LANGUAGE_CODE == 'ar' %}
+            <h4 class="title"><a href="">{{ cat.name_ar | safe }}</a></h4>
+           {% else %}
+           <h4 class="title"><a href="">{{ cat.name_en | safe | capfirst }}</a></h4>
+           {% endif %}
+        </div>
+
+        {% endfor %}
+        </div>
+      
+       
+      </div>
+
+    </div>
+  </section>

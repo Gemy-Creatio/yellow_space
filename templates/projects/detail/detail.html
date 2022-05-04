@@ -1,0 +1,28 @@
+{% extends 'flex_main.html' %}
+{% load static %}
+{% block content %}
+<main id="main">
+
+{% include 'projects/detail/_breadcrumbs.html' with object=object %}
+
+<section id="portfolio-details" class="portfolio-details">
+    <div class="container">
+
+      <div class="row gy-4">
+        {% include 'projects/detail/_slider.html' with object=object %}
+        {% include 'projects/detail/_details.html' with object=object %}
+
+
+      </div>
+      
+    </div>
+</section>
+
+</main>    
+
+
+{% endblock content %}
+
+
+
+

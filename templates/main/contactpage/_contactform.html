@@ -1,25 +1,33 @@
 
 {% load crispy_forms_tags %}
 {% load static %}
+  <section id="contact" class="contact">
+    <div class="container">
 
- <div class="container">
-    <div class="row mt-lg-n10 mt-md-n11 mt-n10">
-      <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
-        <div class="card z-index-0">
-          <div class="card-body">
-            <form role="form text-left">
-                {% csrf_token %}
-                {{ form|crispy }}
-              <div class="text-center">
-                {% if LANGUAGE_CODE == 'ar' %}
-                <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">إرسال</button>
-                {% else %}
-                <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Send</button>
-                {% endif %}
-              </div>
-            </form>
-          </div>
-        </div>
+      <div class="section-title">
+        {% if LANGUAGE_CODE == 'ar' %}
+        <h2 data-aos="fade-up">{{content.head_ar | safe }}</h2>
+         <p data-aos="fade-up" data-aos-delay="100">{{ content.description_ar | safe }} </p>
+{% else %}
+<h2 data-aos="fade-up">{{content.head_en | safe }}</h2>
+<p data-aos="fade-up" data-aos-delay="100">{{ content.description_en | safe }} </p>
+{% endif %}
       </div>
+
+      <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="300">
+        <div class="col-xl-9 col-lg-12 mt-4">
+          <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            {% csrf_token %}
+            {{ form|crispy }}
+            {% if LANGUAGE_CODE == 'ar' %}
+            <div class="text-center"><button type="submit">إرسال</button></div>
+            {% else %}
+            <div class="text-center"><button type="submit">Send </button></div>
+            {% endif %}
+          </form>
+        </div>
+
+      </div>
+
     </div>
-  </div>
+  </section>

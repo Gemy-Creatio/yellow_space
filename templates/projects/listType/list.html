@@ -1,0 +1,19 @@
+{% extends 'flex_main.html' %}
+{% load static %}
+{% block content %}
+<main id="main">
+{% include 'projects/list/_breadcrumb.html'%}
+<section id="blog" class="blog">
+    <div class="container" data-aos="fade-up">
+
+      <div class="row">
+
+        {% include 'projects/list/_objects.html' with content=projects %}
+        {% include 'projects/list/_info.html' with content=content  cats=cats %}
+      </div>
+    </div>
+</section>
+
+</main>
+{% endblock content %}
+    

@@ -1,17 +1,8 @@
-{% extends 'main.html' %}
-{% block style %}
- <style>
-     label {
-        text-align: end;
-        display: flex;
-     }
- </style>
-{% endblock style %}
-
-
+{% extends 'flex_main.html' %}
 {% block content %}
-
- {% include 'main/contactpage/_contactintro.html' with content=content %}
- {% include 'main/contactpage/_contactform.html' %}
+<main id="main">
+    {% include 'main/contactpage/_contactintro.html' with content=content %}
+    {% include 'main/contactpage/_contactform.html' %}
+</main>
 
 {% endblock content %}

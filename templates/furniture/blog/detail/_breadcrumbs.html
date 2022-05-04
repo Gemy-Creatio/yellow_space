@@ -1,0 +1,16 @@
+<section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+      <ol>
+        {% if LANGUAGE_CODE == 'ar' %}
+        <li><a href="{% url 'home-page' %}">الرئيسية</a></li>
+        <li>المقالات</li>
+      </ol>
+      <h2>{{ content.wood_name_ar | safe }}</h2>
+      {% else %}
+      <li><a href="{% url 'home-page' %}">Home</a></li>
+      <li>Blogs</li>
+    </ol>
+    <h2>{{ content.wood_name_en | safe }}</h2>
+      {% endif %}
+    </div>
+  </section>

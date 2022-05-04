@@ -1,53 +1,39 @@
+<section id="faq" class="faq section-bg">
+  <div class="container">
 
+    <div class="section-title">
+      {% if LANGUAGE_CODE == 'ar' %}
+      <h2 data-aos="fade-up">الأسئلة الشائعة</h2>
+      {% else %}
 
-  <div class="row pt-4">
-    <div class="col-xl-12 col-lg-12 col-md-12  mx-auto">
-      <div class="card z-index-0">
-        <div class="card-body">
-            <section id="faq" class="faq pt-lg-4">
-                <div class="container">
-            
-                  <div class="section-title text-center" data-aos="fade-up">
-                                                {% if LANGUAGE_CODE == 'ar' %}
-                      <h2 class="text-center" >الأسئلة الشائعة</h2>
-            
-                      {% else %}
-                   <h2 class="text-center" >Frequently Asked Questions</h2>
-            
-                      {% endif %}
-                  </div>
-            
-                  <ul class="faq-list">
-             {% for content in faqs %}
-                                                       {% if LANGUAGE_CODE == 'ar' %}
-                    <li>
-                      <div data-bs-toggle="collapse" class="collapsed question" href="#faq{{ content.pk }}">{{ content.question_ar |safe }} <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
-                      <div id="faq{{ content.pk }}" class="collapse" data-bs-parent=".faq-list">
-                        <p>
-                            {{ content.answer_ar |safe }}
-                        </p>
-                      </div>
-                    </li>
-                 {% else %}
-            
-                         <li>
-                      <div data-bs-toggle="collapse" class="collapsed question" href="#faq{{ content.pk }}">{{ content.question_en |safe |capfirst}} <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
-                      <div id="faq{{ content.pk }}" class="collapse" data-bs-parent=".faq-list">
-                        <p>
-                            {{ content.answer_en |safe |capfirst}}
-                        </p>
-                      </div>
-                    </li>
-            
-                 {% endif %}
-                {% endfor %}
-            
-                  </ul>
-            
-                </div>
-              </section>
-            
-        </div>
+      <h2 data-aos="fade-up">F.A.Q</h2>
+      {% endif %}
     </div>
-</div>
-</div>
+
+    <div class="faq-list">
+      <ul>
+      {% for faq in content.faqs  %}
+      <li data-aos="fade-up" data-aos-delay="{{ faq.data_os }}">
+          {% if LANGUAGE_CODE == 'ar' %}
+          <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed"> {{ faq.question_ar | safe }} <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+          <div id="faq-list-{{ faq.pk }}" class="collapse" data-bs-parent=".faq-list">
+            <p>
+                {{ faq.answer_ar | safe }}
+            </p>
+          </div>
+          {% else %}
+          <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed"> {{ faq.question_en | safe | capfirst }} <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+          <div id="faq-list-{{ faq.pk }}" class="collapse" data-bs-parent=".faq-list">
+            <p>
+                {{ faq.answer_en | safe |capfirst }}
+            </p>
+          </div>
+
+          {% endif %}
+        </li>
+      {% endfor %}
+      </ul>
+    </div>
+
+  </div>
+</section>

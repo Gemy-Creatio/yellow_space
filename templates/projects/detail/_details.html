@@ -1,0 +1,64 @@
+<div class="col-lg-4">
+    <div class="portfolio-info">
+        {% if LANGUAGE_CODE == 'ar' %}
+      <h3> نبذة عن المشروع</h3>
+      {% else %}
+      <h3>Project information</h3>
+
+      {% endif %}
+      {% if LANGUAGE_CODE == 'ar' %}
+      <ul>
+        <li><strong>التصنيف</strong>:{{object.catgeory.name_ar | safe}}</li>
+        <li><strong>السعر</strong>: {{ object.price }}</li>
+        <li><strong>الكود</strong>: {{ object.code }}</li>
+
+        <li><strong>التاريخ</strong>: {{ object.date_added}}</li>
+      </ul>
+      {% else %}
+      <ul>
+        <li><strong>Category</strong>: {{object.catgeory.name_en | safe}}</li>
+        <li><strong>Price</strong>: {{ object.price }}</li>
+        <li><strong>Code </strong>: {{ object.code}}</li>
+        <li><strong> Date</strong>: {{ object.date_added}}</li>
+      </ul>
+
+      {% endif %}
+    </div>
+    <div class="portfolio-description">
+        {% if LANGUAGE_CODE == 'ar' %}
+      <p>
+          {{ object.description_1_ar | safe }}
+      </p>
+      {% else %}
+      <p>
+        {{ object.description_1_en | safe }}
+      </p>
+
+      {% endif %}
+    </div>
+
+    <div class="portfolio-description">
+        {% if LANGUAGE_CODE == 'ar' %}
+      <p>
+          {{ object.description_2_ar | safe }}
+      </p>
+      {% else %}
+      <p>
+        {{ object.description_2_en | safe }}
+      </p>
+
+      {% endif %}
+    </div>
+    <div class="portfolio-description">
+        {% if LANGUAGE_CODE == 'ar' %}
+      <p>
+          {{ object.description_3_ar | safe }}
+      </p>
+      {% else %}
+      <p>
+        {{ object.description_3_en | safe }}
+      </p>
+
+      {% endif %}
+    </div>
+  </div>

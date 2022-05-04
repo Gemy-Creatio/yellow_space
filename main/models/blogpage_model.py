@@ -9,6 +9,9 @@ class Blogpage(SingletonModel):
     title_ar = models.CharField(max_length=255,null=True , blank=True)
     content_en = RichTextField(max_length=255,null=True)
     content_ar = RichTextField(max_length=255,null=True)
+    def blogs(self):
+        from furniture.models.wood_information_model import WoodInformation
+        return WoodInformation.objects.order_by('-publication_date').filter(is_ready=True)[:4]
     @property
     def image_url(self):
         if self.background_image and hasattr(self.background_image, 'url'):

@@ -4,5 +4,7 @@ from .contact_model import (
     Contact ,
     ContactPage
 )
+from .staff_model import Staff
 from.faq_model import FAQ
 from .about_model import AboutPage
+from .projectspage_model import Projectspage

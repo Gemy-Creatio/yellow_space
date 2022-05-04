@@ -1,4 +1,25 @@
-<section class="callout" style="background-image: url('{{ content.show_section_background_url }}')" >
-            <div class="container px-4 px-lg-5 text-center">
+<section id="values" class="values">
+    <div class="container">
+
+      <div class="row">
+          {% for blog in content.blogs  %}
+          <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+            <div class="card" style="background-image: url({{ blog.image_1_url }});">
+              <div class="card-body">
+                {% if LANGUAGE_CODE == 'ar' %}
+                <h5 class="card-title"><a href="{% url 'blog-detail' blog.pk %}">{{ blog.wood_name_ar | safe }}</a></h5>
+                <p class="card-text">{{ blog.description_1_ar | safe }}</p>
+                <div class="read-more"><a href="{% url 'blog-detail' blog.pk %}"><i class="bi bi-arrow-right"></i> المزيد</a></div>
+                {% else %}
+                <h5 class="card-title"><a href="{% url 'blog-detail' blog.pk %}">{{ blog.wood_name_en | safe | capfirst }}</a></h5>
+                <p class="card-text">{{ blog.description_1_en | safe | capfirst }}</p>
+                <div class="read-more"><a href="{% url 'blog-detail' blog.pk %}"><i class="bi bi-arrow-right"></i> Read More</a></div>
+                {% endif %}
+              </div>
             </div>
-</section>
+          </div>   
+          {% endfor %}    
+      </div>
+
+    </div>
+  </section>

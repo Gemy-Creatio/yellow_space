@@ -1,0 +1,67 @@
+<footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row justify-content-between">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            {% if LANGUAGE_CODE == 'ar' %}
+            <h3>يلو سباس</h3>
+            <p>
+              مدينة السلام  <br>
+              القاهرة<br>
+              مصر <br><br>
+              <strong>الهاتف:</strong> +1 5589 55488 55<br>
+              <strong>البريد الألكترونى:</strong> info@example.com<br>
+            </p>
+            {% else %}
+            <h3>YellowSpace</h3>
+            <p>
+              El-Salam City <br>
+              Cairo<br>
+              Egypt <br><br>
+              <strong>Phone:</strong> +1 5589 55488 55<br>
+              <strong>Email:</strong> info@example.com<br>
+            </p>
+            {% endif %}
+          </div>
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            {% if LANGUAGE_CODE == 'ar' %}
+            <h4>اشترك معنا</h4>
+            <p>ليصلك كل ما هو جديد من مقالات و اعمال</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="إشترك">
+            </form>
+            {% else %}
+            <h4>Join Our Newsletter</h4>
+            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+
+            {% endif %}
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="container d-lg-flex py-4">
+
+        <div class="me-lg-auto text-center text-lg-start">
+            {% if LANGUAGE_CODE == 'ar' %}
+          <div class="copyright">
+            &copy; حقوق الملكية <strong><span>YellowSpace</span></strong>. جميع الحقوقو محفوظة
+          </div>
+          {% else %}
+          <div class="copyright">
+            &copy; Copyright <strong><span>YellowSpace</span></strong>. All Rights Reserved
+          </div>
+          {% endif %}
+        </div>
+        <div class="social-links text-center text-lg-right pt-3 pt-lg-0">
+          <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        </div>
+      </div>
+  </footer>
