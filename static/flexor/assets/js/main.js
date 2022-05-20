@@ -122,7 +122,8 @@
     window.addEventListener('load', whats)
     onscroll(document, whats)
   }
-  function whatsapp() {
+  function callus()
+  {
     window.location.href = "https://api.whatsapp.com/send?phone=201022998805"
   }
   /**

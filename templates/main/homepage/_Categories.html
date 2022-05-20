@@ -10,7 +10,6 @@
        {% else %}
        <h2>{{ content.category_title_en | safe |capfirst }}</h2>
        <p> {{ content.category_description_en | safe | capfirst }} </p>
-
        {% endif %}
     </div>
 
@@ -18,17 +17,31 @@
         {% for cat in content.categories %}
         <div class="col-lg-4 col-md-6" data-aos="fade-up">
           <div class="icon-box">
-            <div class="icon"><img src="{{ cat.picture.url }}" class="card-img"/></div>
-            {% if LANGUAGE_CODE == 'ar' %}
-            <h4 class="title"><a href="">{{ cat.name_ar | safe }}</a></h4>
-           {% else %}
-           <h4 class="title"><a href="">{{ cat.name_en | safe | capfirst }}</a></h4>
-           {% endif %}
+            <div class="row">
+              <div class="col-12 col-lg-6">
+                <img src="{{ cat.image_url }}" class="img-fluid"/>
+              </div>
+              <div class="col-12 col-lg-6">
+                {% if LANGUAGE_CODE == 'ar' %}
+                <div class="pt-8 pt-lg-2">
+                <h4 class="title"><a href="">{{ cat.name_ar | safe }}</a></h4>
+                <p> {{ cat.content_ar | safe }} </p>
+                </div>
+               {% else %}
+               <div class="pt-8 pt-lg-2">
+                <h4 class="title"><a href="">{{ cat.name_en | safe | capfirst }}</a></h4>
+                <p> {{ cat.content_en | safe }} </p>
+               </div>
+    
+               {% endif %}
+              </div>
+            </div>
+    
+        </div>
         </div>
 
         {% endfor %}
-        </div>
-      
+
        
       </div>
 
